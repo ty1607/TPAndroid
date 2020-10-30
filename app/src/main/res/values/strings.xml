@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">TPAndroid</string>
+    <string name="textFragmentView">Testing Fragment View</string>
 </resources>
