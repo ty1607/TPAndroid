@@ -1,5 +1,6 @@
 package com.example.tpandroid;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -31,6 +32,7 @@ public class CustomView extends View {
         init();
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     private void init (){
         setWillNotDraw(false);
         setOnTouchListener((v, event) -> {
