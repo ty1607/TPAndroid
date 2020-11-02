@@ -24,9 +24,10 @@ public class HomeListFragment extends ListFragment {
         String[] list = new String[]{
                 "ImageView",
                 "TextView",
-                "Touch"
+                "Touch",
+                "Motion"
         };
-        ListAdapter listAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, list);
+        ListAdapter listAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, list);
         setListAdapter(listAdapter);
     }
 
@@ -37,10 +38,11 @@ public class HomeListFragment extends ListFragment {
     }
 
     @Override
-    public void onListItemClick(ListView l, View v, int position, long id) {
+    public void onListItemClick(@NonNull ListView l, @NonNull View v, int position, long id) {
+        assert getFragmentManager() != null;
         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
 
-        switch (getListView().getItemAtPosition(position).toString()){
+        switch (getListView().getItemAtPosition(position).toString()) {
             case "ImageView":
                 ImageViewFragment imageViewFragment = new ImageViewFragment();
                 fragmentTransaction.replace(R.id.container, imageViewFragment, "Image");
@@ -59,9 +61,13 @@ public class HomeListFragment extends ListFragment {
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
                 break;
+            case "Motion":
+                MotionFragment motionFragment = new MotionFragment();
+                fragmentTransaction.replace(R.id.container, motionFragment, "Motion");
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+                break;
         }
-
-
         super.onListItemClick(l, v, position, id);
     }
 }

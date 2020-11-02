@@ -12,7 +12,7 @@ import androidx.annotation.Nullable;
 
 public class CustomView extends View {
 
-    private Paint paint = new Paint();
+    private final Paint paint = new Paint();
     private float x = -100;
     private float y = -100;
 
