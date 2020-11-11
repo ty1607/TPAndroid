@@ -38,6 +38,7 @@ public class CustomView extends View {
         setOnTouchListener((v, event) -> {
             x = event.getX();
             y = event.getY();
+
             invalidate();
             return true;
         });
@@ -47,4 +48,6 @@ public class CustomView extends View {
         paint.setColor(Color.RED);
         canvas.drawCircle(x, y, 30, paint);
     }
+
+
 }

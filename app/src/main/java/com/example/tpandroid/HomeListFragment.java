@@ -25,7 +25,8 @@ public class HomeListFragment extends ListFragment {
                 "ImageView",
                 "TextView",
                 "Touch",
-                "Motion"
+                "Motion",
+                "ImageList"
         };
         ListAdapter listAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, list);
         setListAdapter(listAdapter);
@@ -67,6 +68,13 @@ public class HomeListFragment extends ListFragment {
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
                 break;
+            case "ImageList":
+                ImageListFragment imageListFragment = new ImageListFragment();
+                fragmentTransaction.replace(R.id.container, imageListFragment, "ImageList");
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+                break;
+
         }
         super.onListItemClick(l, v, position, id);
     }
