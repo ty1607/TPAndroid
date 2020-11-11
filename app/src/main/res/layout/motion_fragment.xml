@@ -25,6 +25,19 @@
             android:layout_height="wrap_content"
             android:text="@string/Acc_text_value" />
 
+        <TextView
+            android:id="@+id/textViewMgnVal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Magnetometer_text_value" />
+
+        <TextView
+            android:id="@+id/textViewRotVal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/rotation_text_value" />
+
+
         <com.example.tpandroid.MotionView
             android:id="@+id/motionView"
             android:layout_width="match_parent"

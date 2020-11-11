@@ -24,6 +24,8 @@ public class MotionFragment extends Fragment implements SensorEventListener{
     private SensorManager sensorManager;
     private Sensor gyroscopeSensor;
     private Sensor accelerometerSensor;
+    private Sensor magnetometerSensor;
+    private Sensor rotationSensor;
 
     public MotionFragment() {
     }
@@ -41,20 +43,32 @@ public class MotionFragment extends Fragment implements SensorEventListener{
         // Gyro
         gyroscopeSensor = sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
         if (gyroscopeSensor == null) {
-            System.out.println("No GYYYYYRO");
+            System.out.println("No Gyrooooooooo");
         }
         // Accelerometer
         accelerometerSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         if (gyroscopeSensor == null) {
-            System.out.println("No Accerooooo");
+            System.out.println("No Accelerooooo");
+        }
+        //Magnetometer
+        magnetometerSensor = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
+        if (magnetometerSensor == null) {
+            System.out.println("No Megnetoooooo");
+        }
+        //Magnetometer
+        rotationSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR);
+        if (rotationSensor == null) {
+            System.out.println("No Rotatioooooo");
         }
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        sensorManager.registerListener(this, gyroscopeSensor, SensorManager.SENSOR_DELAY_FASTEST);
+        sensorManager.registerListener(this, gyroscopeSensor, SensorManager.SENSOR_DELAY_NORMAL);
         sensorManager.registerListener(this, accelerometerSensor, SensorManager.SENSOR_DELAY_NORMAL);
+        sensorManager.registerListener(this, magnetometerSensor, SensorManager.SENSOR_DELAY_NORMAL);
+        sensorManager.registerListener(this, rotationSensor, SensorManager.SENSOR_DELAY_NORMAL);
     }
 
     @Override
@@ -79,6 +93,20 @@ public class MotionFragment extends Fragment implements SensorEventListener{
                 txAcc.setText("Accelerometer value is: X: " + event.values[0] + " Y: " + event.values[1] + " Z: " + event.values[2]);
             } else {
                 System.out.println("txAcc in MotionFragmnt is null");
+            }
+        } else if (magnetometerSensor.equals(event.sensor)) {
+            TextView txMagn = (TextView) Objects.requireNonNull(this.getView()).findViewById(R.id.textViewMgnVal);
+            if (txMagn != null) {
+                txMagn.setText("Magnetometer value is: X: " + event.values[0] + " Y: " + event.values[1] + " Z: " + event.values[2]);
+            } else {
+                System.out.println("txMagn in MotionFragmnt is null");
+            }
+        } else if (rotationSensor.equals(event.sensor)) {
+            TextView txRot = (TextView) Objects.requireNonNull(this.getView()).findViewById(R.id.textViewRotVal);
+            if (txRot != null) {
+                txRot.setText("Rotation value is: X: " + event.values[0] + " Y: " + event.values[1] + " Z: " + event.values[2]);
+            } else {
+                System.out.println("txRot in MotionFragmnt is null");
             }
         }
         // MAYBE Put into View

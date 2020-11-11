@@ -3,4 +3,6 @@
     <string name="textFragmentView">Testing Fragment View</string>
     <string name="gyro_text_value">My gyro Value</string>
     <string name="Acc_text_value">My Accelerometer value</string>
+    <string name="Magnetometer_text_value">Magnetometer value</string>
+    <string name="rotation_text_value">Rotation Value</string>
 </resources>
