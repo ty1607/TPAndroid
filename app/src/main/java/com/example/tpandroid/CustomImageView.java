@@ -76,7 +76,10 @@ public class CustomImageView extends View {
             currentPos = (currentPos+1) % images.length;
             return images[currentPos];
         }else {
-            currentPos = (currentPos-1) % images.length;
+            if (currentPos == 0)
+                currentPos = images.length-1;
+            else
+                currentPos--;
             return images[currentPos];
         }
     }
