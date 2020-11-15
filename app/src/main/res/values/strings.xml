@@ -5,4 +5,7 @@
     <string name="Acc_text_value">My Accelerometer value</string>
     <string name="Magnetometer_text_value">Magnetometer value</string>
     <string name="rotation_text_value">Rotation Value</string>
+    <string name="text_entry">Type your text</string>
+    <string name="button_font">Change To Bold</string>
+    <string name="button_color">Change to Blue</string>
 </resources>

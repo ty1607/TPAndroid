@@ -18,8 +18,4 @@ public class ImageViewFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.image_view_fragment, container, false);
     }
-
-
-
-
 }

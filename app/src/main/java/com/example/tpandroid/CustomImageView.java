@@ -44,6 +44,7 @@ public class CustomImageView extends View {
     }
 
 
+    @SuppressLint("ClickableViewAccessibility")
     private void init (){
         setWillNotDraw(false);
         findViewById(R.id.imageViewer).setBackgroundResource(images[0]);
