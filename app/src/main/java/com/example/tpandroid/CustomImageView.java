@@ -54,7 +54,6 @@ public class CustomImageView extends View {
             y = event.getY();
             System.out.println();
             width = v.getWidth();
-
             if (event.getAction() == 0) {
                 if (x > width / 2) {
                     findViewById(R.id.imageViewer).setBackgroundResource(getNextImage(true));

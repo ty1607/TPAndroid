@@ -47,7 +47,7 @@ public class MotionFragment extends Fragment implements SensorEventListener{
         }
         // Accelerometer
         accelerometerSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-        if (gyroscopeSensor == null) {
+        if (accelerometerSensor == null) {
             System.out.println("No Accelerooooo");
         }
         //Magnetometer
