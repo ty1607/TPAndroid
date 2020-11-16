@@ -30,8 +30,8 @@ public class CustomDoubleIInteractionView extends View {
             R.drawable.fine,
             R.drawable.mike,
             R.drawable.confused2
-
     };
+
     public CustomDoubleIInteractionView(Context context) {
         super(context);
         init();
@@ -53,6 +53,7 @@ public class CustomDoubleIInteractionView extends View {
     private void init (){
         setWillNotDraw(false);
         findViewById(R.id.doubleInteraction).setBackgroundResource(images[0]);
+
 
         setOnTouchListener((v, event) -> {
             invalidate();
@@ -81,12 +82,12 @@ public class CustomDoubleIInteractionView extends View {
     /*
     returns the image to show
      */
-    private int getNextImage(boolean next){
+    public int getNextImage(boolean next){
 
         if (next){
             currentPos = (currentPos+1) % images.length;
             return images[currentPos];
-        }else {
+        } else {
             if (currentPos == 0)
                 currentPos = images.length-1;
             else

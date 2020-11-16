@@ -29,7 +29,7 @@ public class DoubleInteractionFragment extends Fragment implements SensorEventLi
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.text_entry_fragment, container, false);
+        View view = inflater.inflate(R.layout.double_interactions, container, false);
         sensorManager = (SensorManager) Objects.requireNonNull(getActivity()).getSystemService(SENSOR_SERVICE);
         // Accelerometer
         accelerometerSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
@@ -54,12 +54,13 @@ public class DoubleInteractionFragment extends Fragment implements SensorEventLi
     @SuppressLint("SetTextI18n")
     @Override
     public void onSensorChanged(SensorEvent event) {
+        CustomDoubleIInteractionView doubleIView = (CustomDoubleIInteractionView) getView().findViewById(R.id.doubleInteraction);
         if (accelerometerSensor.equals(event.sensor)) {
-            TextView txAcc = (TextView) Objects.requireNonNull(this.getView()).findViewById(R.id.textViewAccVal);
-            if (txAcc != null) {
-                txAcc.setText("Accelerometer value is: X: " + event.values[0] + " Y: " + event.values[1] + " Z: " + event.values[2]);
-            } else {
-                System.out.println("txAcc in MotionFragmnt is null");
+            if (event.values[1] > 2) {
+                getView().findViewById(R.id.doubleInteraction).setBackgroundResource((doubleIView.getNextImage(true)));
+            }
+            if (event.values[1] < -2) {
+                getView().findViewById(R.id.doubleInteraction).setBackgroundResource((doubleIView.getNextImage(true)));
             }
         }
     }
