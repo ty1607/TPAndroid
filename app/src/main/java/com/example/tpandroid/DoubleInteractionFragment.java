@@ -1,5 +1,6 @@
 package com.example.tpandroid;
 
+
 import android.annotation.SuppressLint;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -65,6 +66,5 @@ public class DoubleInteractionFragment extends Fragment implements SensorEventLi
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
-
     }
 }

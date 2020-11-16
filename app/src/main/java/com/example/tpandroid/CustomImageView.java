@@ -54,7 +54,11 @@ public class CustomImageView extends View {
             y = event.getY();
             System.out.println();
             width = v.getWidth();
-            if (event.getAction() == 0) {
+
+            //Tests if the action was a press rather than movement or release
+            if (event.getAction() == MotionEvent.ACTION_DOWN) {
+
+                //Tests if the event was triggered on the right or left side of the screen
                 if (x > width / 2) {
                     findViewById(R.id.imageViewer).setBackgroundResource(getNextImage(true));
                 } else {
@@ -64,12 +68,11 @@ public class CustomImageView extends View {
 
             return true;
         });
-
-
     }
 
-
-
+    /*
+    returns the image to show
+     */
     private int getNextImage(boolean next){
 
         if (next){
