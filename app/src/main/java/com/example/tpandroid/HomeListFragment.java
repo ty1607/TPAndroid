@@ -27,7 +27,8 @@ public class HomeListFragment extends ListFragment {
                 "Touch",
                 "Motion",
                 "ImageList",
-                "Text Entry"
+                "Text Entry",
+                "Double Interaction"
         };
         ListAdapter listAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, list);
         setListAdapter(listAdapter);
@@ -78,6 +79,12 @@ public class HomeListFragment extends ListFragment {
             case "Text Entry":
                 TextEntryFragment textEntryFragment = new TextEntryFragment();
                 fragmentTransaction.replace(R.id.container, textEntryFragment, "Text Entry");
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+                break;
+            case "Double Interaction":
+                DoubleInteractionFragment doubleInteractionFragment = new DoubleInteractionFragment();
+                fragmentTransaction.replace(R.id.container, doubleInteractionFragment, "Double Interaction");
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
                 break;
